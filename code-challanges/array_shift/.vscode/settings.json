@@ -1,3 +1,4 @@
 {
-  "python.linting.pylintEnabled": true
+  "python.linting.pylintEnabled": true,
+  "python.pythonPath": "/Users/paul/.local/share/virtualenvs/array_shift-Vk_XV5Kf/bin/python"
 }
