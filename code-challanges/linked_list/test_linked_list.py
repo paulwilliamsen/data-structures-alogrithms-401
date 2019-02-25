@@ -80,4 +80,56 @@ def test_print():
 
     assert fruits.print() == 'pears,watermelon,pineapple,'
 
+def test_append_item():
+
+    fruits = LinkedList()
+    fruits.insert('pears')
+    fruits.insert('watermelon')
+    fruits.insert('pineapple')
+
+    assert fruits.print() == 'pears,watermelon,pineapple,'
+
+def test_insert_before():
+
+    fruits = LinkedList()
+    fruits.insert('pears')
+    fruits.insert('watermelon')
+    fruits.insert('pineapple')
+
+    fruits.insert_before('pineapple','poptart')
+
+    assert fruits.print() == 'pears,watermelon,poptart,pineapple,'
+
+
+def test_insert_before_2():
+
+    fruits = LinkedList()
+    fruits.insert('pears')
+    fruits.insert('watermelon')
+    fruits.insert('pineapple')
+    fruits.insert('grapes')
+    fruits.insert('berry')
+    fruits.insert('cherries')
+    fruits.insert('orange')
+    fruits.insert('apple')
+
+    fruits.insert_before('orange','blackberry')
+
+    assert fruits.print() == 'pears,watermelon,pineapple,grapes,berry,cherries,blackberry,orange,apple,'
+
+def test_insert_after():
+
+    fruits = LinkedList()
+    fruits.insert('pears')
+    fruits.insert('watermelon')
+    fruits.insert('pineapple')
+    fruits.insert('grapes')
+    fruits.insert('berry')
+    fruits.insert('cherries')
+    fruits.insert('orange')
+    fruits.insert('apple')
+
+    fruits.insert_after('watermelon','blackberry')
+
+    assert fruits.print() == 'pears,watermelon,blackberry,pineapple,grapes,berry,cherries,orange,apple,'
 
