@@ -133,3 +133,27 @@ def test_insert_after():
 
     assert fruits.print() == 'pears,watermelon,blackberry,pineapple,grapes,berry,cherries,orange,apple,'
 
+def test_find_from_end_first():
+   fruits = LinkedList()
+   fruits.insert('apples')
+   fruits.insert('bananas')
+   fruits.insert('pears')
+   fruits.insert('grapes')
+   actual = fruits.find_from_end(2)
+   assert 'bananas' == actual
+def test_find_from_end_second():
+   fruits = LinkedList()
+   fruits.insert('apples')
+   fruits.insert('bananas')
+   fruits.insert('pears')
+   fruits.insert('grapes')
+   actual = fruits.find_from_end(1)
+   assert 'pears' == actual
+def test_find_from_end_exception():
+   fruits = LinkedList()
+   fruits.insert('apples')
+   fruits.insert('bananas')
+   fruits.insert('pears')
+   fruits.insert('grapes')
+   actual = fruits.find_from_end(5)
+   assert 'exception' == actual
