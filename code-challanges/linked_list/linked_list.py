@@ -62,6 +62,21 @@ class LinkedList():
 
       return False
 
+    def find_from_end(self,value):
+      length = 0
+      curr = self.head
+      while curr:
+          length += 1
+          curr = curr._next
+      distance = length - value -1
+      curr = self.head
+      if length > value :
+          for x in range (0,distance):
+              curr = curr._next
+          return curr.value
+      else:
+          return 'exception'
+
 
     def print(self):
         output = ''
