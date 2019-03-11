@@ -14,41 +14,47 @@ class BinaryTree():
   def __init__(self):
     self.root = None
 
-  def pre_order(self, node):
+  def pre_order(self, curr=None):
     """
     NODE - LEFT - RIGHT
     """
     output_array = []
-    output_array.append(node.data)
-    if node.left:
-      output_array += self.pre_order(node.left)
-    if node.right:
-      output_array += self.pre_order(node.right)
+    if not curr:
+      curr = self.root
+    output_array.append(curr.data)
+    if curr.left:
+      output_array += self.pre_order(curr.left)
+    if curr.right:
+      output_array += self.pre_order(curr.right)
     return output_array
 
 
-  def in_order(self, node):
+  def in_order(self, curr=None):
     """
     LEFT - NODE - RIGHT
     """
     output_array = []
-    if node.left:
-      output_array += self.in_order(node.left)
-    output_array.append(node.data)
-    if node.right:
-      output_array += self.in_order(node.right)
+    if not curr:
+      curr = self.root
+    if curr.left:
+      output_array += self.in_order(curr.left)
+    output_array.append(curr.data)
+    if curr.right:
+      output_array += self.in_order(curr.right)
     return output_array
 
-  def post_order(self, node):
+  def post_order(self, curr=None):
     """
     LEFT - RIGHT - NODE
     """
     output_array = []
-    if node.left:
-      output_array += self.post_order(node.left)
-    if node.right:
-      output_array += self.post_order(node.right)
-    output_array.append(node.data)   
+    if not curr:
+      curr = self.root
+    if curr.left:
+      output_array += self.post_order(curr.left)
+    if curr.right:
+      output_array += self.post_order(curr.right)
+    output_array.append(curr.data)   
     return output_array
     
 
@@ -68,7 +74,7 @@ class BinarySearchTree(BinaryTree):
           curr.left = Node(data)
         else:
           self.add(data, curr.left)
-      if data >= curr.data:
+      if data > curr.data:
         if curr.right is None:
           curr.right = Node(data)
         else:
