@@ -93,10 +93,12 @@ class BinarySearchTree(BinaryTree):
     if data == curr.data:
       return True
 
-    if curr.left:
-      self.contains(data, curr.left)
-
-    if curr.right:
-      self.contains(data, curr.right)
-
+    if data < curr.data:
+      if curr.left:
+        return self.contains(data, curr.left)
+      
+    if data > curr.data:
+      if curr.right:
+        return self.contains(data, curr.right)
+    
     return False
