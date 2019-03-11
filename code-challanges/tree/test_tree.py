@@ -73,3 +73,31 @@ def test_in_order():
     tree.add(4)
     
     assert tree.in_order(tree.root) == [3, 4, 5, 6, 7, 8]
+
+def test_contains_true():
+    """
+
+    """
+    tree = BinarySearchTree()
+    tree.add(6)
+    tree.add(5)
+    tree.add(7)
+    tree.add(8)
+    tree.add(3)
+    tree.add(4)
+
+    assert tree.contains(5) is True
+
+def test_contains_false():
+    """
+
+    """
+    tree = BinarySearchTree()
+    tree.add(6)
+    tree.add(5)
+    tree.add(7)
+    tree.add(8)
+    tree.add(3)
+    tree.add(4)
+
+    assert tree.contains(55) is False
