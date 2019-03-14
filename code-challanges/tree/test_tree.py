@@ -101,3 +101,38 @@ def test_contains_false():
     tree.add(4)
 
     assert tree.contains(55) is False
+
+def test_max():
+    """
+
+    """
+    tree = BinarySearchTree()
+    tree.add(6)
+    tree.add(5)
+    tree.add(7)
+    tree.add(8)
+    tree.add(3)
+    tree.add(4)
+
+    assert tree.get_max_value() == 8
+
+def test_max():
+    """
+
+    """
+    tree = BinarySearchTree()
+    tree.add(364)
+    tree.add(64)
+    tree.add(264)
+    tree.add(67)
+    tree.add(164)
+    tree.add(54)
+    tree.add(464)
+    tree.add(4)
+    tree.add(53)
+    tree.add(7)
+    tree.add(82)
+    tree.add(322)
+    tree.add(489)
+
+    assert tree.get_max_value() == 489
