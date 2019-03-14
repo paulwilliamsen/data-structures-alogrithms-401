@@ -56,6 +56,24 @@ class BinaryTree():
       output_array += self.post_order(curr.right)
     output_array.append(curr.data)   
     return output_array
+
+  def get_max_value(self):
+    
+    self.max = 0
+
+    def _update_max(node):
+      if node.data > self.max:
+        self.max = node.data
+      if node.left:
+        _update_max(node.left)
+      if node.right:
+        _update_max(node.right)
+
+    if self.root:
+      _update_max(self.root)
+
+
+    return self.max
     
 
 class BinarySearchTree(BinaryTree):
