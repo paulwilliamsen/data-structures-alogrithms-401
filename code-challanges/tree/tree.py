@@ -7,6 +7,46 @@ class Node():
     self.right = None
     self.data = data
 
+class Queue():
+    """
+    """
+    front = None
+    rear = None
+    empty = 'Empty Queue'
+
+    def enqueue(self, node):
+        """
+        """
+        if self.rear is None:
+          self.rear = node
+          self.front = node
+        else:
+          self.rear._next = node
+          self.rear = node
+       
+    def dequeue(self):
+        """
+        """
+        if self.front is not None:
+          current = self.front
+          self.front = self.front._next
+          current._next = None
+          if self.front is None:
+              self.rear = None
+          return current
+        else:
+            return None
+        
+       
+    def peek(self):
+        """
+        """
+        if self.front is not None:
+          return self.front
+        else:
+          return None
+        
+
 class BinaryTree():
   """
 
@@ -74,7 +114,26 @@ class BinaryTree():
 
 
     return self.max
-    
+
+  def breadth_first(self):
+      """
+      """
+      queue = Queue()
+      array = []
+
+      if self.root:
+          queue.enqueue(self.root)
+
+      while queue.peek():
+          curr = queue.dequeue()
+          x.append(curr.data)
+          if curr.left:
+              queue.enqueue(curr.left)
+          if curr.right:
+              queue.enqueue(curr.right)
+
+      return array
+  
 
 class BinarySearchTree(BinaryTree):
   """
@@ -120,3 +179,4 @@ class BinarySearchTree(BinaryTree):
         return self.contains(data, curr.right)
     
     return False
+
