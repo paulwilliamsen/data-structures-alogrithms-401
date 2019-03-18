@@ -136,3 +136,9 @@ def test_max():
     tree.add(489)
 
     assert tree.get_max_value() == 489
+
+
+
+def test_exists():
+    tree = BinarySearchTree()
+    assert tree.breadth_first() == []
