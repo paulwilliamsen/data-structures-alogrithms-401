@@ -1,17 +1,19 @@
+from linked_list.linked_list import LinkedList 
 
 class HashTable(object):
     """
     HashTable creation
     """
     def __init__(self):
-        bucket = LinkedList()
-        self._array = [None] * 1024
+
+        self._array = [LinkedList()] * 1024
+        # self._array = [None] * 1024
 
     def hash(self, key):
         """
         hash: takes in an arbitrary key and returns an index in the collection.
         """
-        index = int(str(key)) * 599 // 1024
+        index = int(str(key), 36) * 599 // 1024
         return index
 
     def add(self, key, value):
@@ -20,6 +22,10 @@ class HashTable(object):
         """
         index = self.hash(key)
         self._array[index].insert((key, value))
+
+        # if not self._array[index]:
+        #   self._array[index] =  LinkedList()
+
         
 
     def get(self, key):
@@ -144,8 +150,8 @@ class LinkedList():
     
 
 class Node():
-    def __init__(self, value):
-        self.value = value
+    def __init__(self, data):
+        self.data = data
         self._next = None
 
 
